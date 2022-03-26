@@ -19,7 +19,11 @@ function ColorBox() {
     // funtion arrow de k cho default value chay nhieu lan
     const [color, setColor] = useState(() => {
         const initColor = localStorage.getItem('box_color') || 'deeppink';
+        console.log(initColor);
+        return initColor;
     });
+    /* const initColor = localStorage.getItem('box_color') || 'deeppink';
+    const [color, setColor] = useState(initColor); */
     function handlerBoxClick() {
         const newColor = getRandomColor();
         setColor(newColor);
