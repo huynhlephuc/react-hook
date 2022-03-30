@@ -7,6 +7,9 @@ import TodoForm from './compoments/TodoForm';
 import PostList from './compoments/PostList'
 import TodoList from './compoments/TodoList';
 import Pagination from './compoments/Pagination';
+import PostFiltersForm from './compoments/PostFiltersForm';
+import Clock from './compoments/Clock';
+import MagicBox from './compoments/MagicBox';
 
 
 function App() {
@@ -106,21 +109,46 @@ function App() {
     });
   }
 
+  //POST FILTER FORM
+  function handlerFilterChange(newFilters) {
+    console.log( 'New filters : ' ,newFilters);
+    setFilters({
+      ...filters,
+      _page: 1,
+      title_like: newFilters.searchTerm,
+    });
+  }
   
+  // nut unmiund cai clock
+  const [showClock, setShowClock] = useState(true);
 
   return (
     <div className="app">
       {/* goi compoments sai lam code k bao loi nhung k chay */}
      <h1>Ready for react hooks!!!</h1>
-     <Pagination 
+
+     <MagicBox />
+
+     {/* {showClock && <Clock />}
+     <button onClick={()=>setShowClock(false)} > hide clock</button> */}
+     
+     {/* <span>Cai nay la PostFiltersForm</span>
+     <PostFiltersForm  onSubmit={handlerFilterChange} /> */}
+     
+    {/*  <Pagination 
         pagination={pagination}
         onPageChange={handlerPageChange}
      />
-     <ColorBox />
-     <TodoForm  onSubmit={handlerOnSubmit}/>
+     
+    /*  <ColorBox />
+     
+     <span>Cai nay la todoForm</span>
+     <TodoForm  onSubmit={handlerOnSubmit} />
+     
      <PostList posts={postList} />
 
-     <TodoList todos={todoList} onTodoClick={handlerTodoList}/>
+     <TodoList todos={todoList} onTodoClick={handlerTodoList}/> */} 
+    
     </div>
   );
 }
